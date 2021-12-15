@@ -41,15 +41,15 @@ function renderGallery() {
 // 	setStrokeColor(color);
 // }
 
-function drawText(txt, x, y) {
-	// gCtx.font = '48px serif';
-	// gCtx.fillText(txt, x, y);
-	gCtx.textBaseline = 'middle';
-	gCtx.textAlign = 'center';
-	// gCtx.lineWidth = 2;
-	// gCtx.strokeStyle = 'red';
-	gCtx.font = '50px monospace';
-	gCtx.fillStyle = 'black';
-	gCtx.fillText(txt, x, y);
-	// gCtx.strokeText(txt, x, y);
-}
+// function drawText(txt, x, y) {
+// 	// gCtx.font = '48px serif';
+// 	// gCtx.fillText(txt, x, y);
+// 	gCtx.textBaseline = 'middle';
+// 	gCtx.textAlign = 'center';
+// 	// gCtx.lineWidth = 2;
+// 	// gCtx.strokeStyle = 'red';
+// 	gCtx.font = '50px monospace';
+// 	gCtx.fillStyle = 'black';
+// 	gCtx.fillText(txt, x, y);
+// 	// gCtx.strokeText(txt, x, y);
+// }

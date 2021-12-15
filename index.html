@@ -9,27 +9,60 @@
 		<title>Tom Rytt-Sprint 2</title>
 	</head>
 	<body onload="onInit()">
-		<header>
-			<div class="main-header">
-				<nav></nav>
+		<header class="header">
+			<div class="main-header flex">
+				<nav class="flex">
+					<div class="logo flex">
+						<img src="./images/logo/logo.png" alt="" />
+					</div>
+					<ul class="nav-items flex">
+						<li class="nav-gallery flex">Gallery</li>
+						<li class="nav-savded memes flex">Memes</li>
+						<li class="nav-about flex">About</li>
+					</ul>
+				</nav>
 			</div>
 		</header>
-		<main>
+		<!-- <div class="search-bar flex">
+			<div class="search-keyword">
+				<input type="text" placeholder="Enter search keyword" />
+			</div>
+			<div class="keywords">
+				<span>funny </span><span>comics </span><span>dogs </span
+				><span>drinks </span><span>books</span>
+			</div>
+		</div> -->
+
+		<main class="main main-layout">
 			<section class="img-gallery grid"></section>
 			<section class="meme-editor">
 				<input
 					id="custom-text"
 					type="text"
 					value="enter some text"
-					onchange="onSelectText(this.value)"
+					oninput="onSetText(this.value)"
 					)
 				/>
+				<label for="color"><img src="./images/icons/brush.png" alt="" /></label>
 				<input
 					type="color"
 					name="color"
 					id="color"
-					onchange="onSelectColor()"
+					onchange="onSetColor(this.value)"
 				/>
+
+				<button onclick="onIncFontSize()">
+					<img src="./images/icons/increase.png" alt="" />
+				</button>
+				<button onclick="onDecFontSize()">
+					<img src="./images/icons/decrease.png" alt="" />
+				</button>
+				<button onclick="onAddLine()">
+					<img src="./images/icons/add.png" alt="" />
+				</button>
+				<button onclick="onSwitchLine()">
+					<img src="./images/icons/switch.png" alt="" />
+				</button>
 				<div class="canvas-container">
 					<canvas
 						class="canvas"
