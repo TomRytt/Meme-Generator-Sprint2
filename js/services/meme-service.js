@@ -17,25 +17,54 @@ var gMeme = {
 		{
 			txt: '',
 			size: 30,
-			align: 'align',
+			align: 'left',
 			strokeColor: 'black',
 			color: 'white',
 			font: 'impact',
-			x: 165,
+			x: 15,
 			y: 50,
 		},
 		{
 			txt: '',
 			size: 30,
-			align: 'align',
+			align: 'left',
 			strokeColor: 'black',
 			color: 'white',
 			font: 'impact',
-			x: 165,
+			x: 15,
 			y: 375,
 		},
 	],
 };
+
+function resetGmeme() {
+	gMeme = {
+		selectedImgId: 5,
+		selectedLineIdx: 0,
+		lines: [
+			{
+				txt: '',
+				size: 30,
+				align: 'left',
+				strokeColor: 'black',
+				color: 'white',
+				font: 'impact',
+				x: 15,
+				y: 50,
+			},
+			{
+				txt: '',
+				size: 30,
+				align: 'left',
+				strokeColor: 'black',
+				color: 'white',
+				font: 'impact',
+				x: 15,
+				y: 375,
+			},
+		],
+	};
+}
 
 function setImg(img) {
 	gMeme.selectedImgId = img.id;
@@ -71,7 +100,7 @@ function addLine() {
 	gMeme.lines.push({
 		txt: '',
 		size: 30,
-		align: 'align',
+		align: 'left',
 		strokeColor: 'black',
 		color: 'white',
 		font: 'impact',
@@ -96,17 +125,20 @@ function switchLine() {
 }
 
 function alignLeft() {
-	gMeme.lines[gMeme.selectedLineIdx].x = 0;
+	gMeme.lines[gMeme.selectedLineIdx].x = 50;
+	gMeme.lines[gMeme.selectedLineIdx].align = 'left';
 	renderMeme();
 }
 
 function alignCenter() {
-	gMeme.lines[gMeme.selectedLineIdx].x = 165;
+	gMeme.lines[gMeme.selectedLineIdx].x = 200;
+	gMeme.lines[gMeme.selectedLineIdx].align = 'center';
 	renderMeme();
 }
 
 function alignRight() {
-	gMeme.lines[gMeme.selectedLineIdx].x = 415;
+	gMeme.lines[gMeme.selectedLineIdx].x = 400;
+	gMeme.lines[gMeme.selectedLineIdx].align = 'right';
 	renderMeme();
 }
 

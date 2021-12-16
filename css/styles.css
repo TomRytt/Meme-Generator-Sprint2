@@ -42,6 +42,11 @@ header {
 	/* box-shadow: inset 0px -6px 0 rgb(30, 30, 30); */
 }
 
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
 .main-header {
 	width: 100vw;
 	justify-content: space-between;
@@ -138,21 +143,29 @@ nav li:last-child {
 
 .meme-editor img {
 	object-fit: contain;
-	height: 30px;
-	width: 30px;
+	height: 35px;
+	width: 35px;
+}
+
+.meme-editor button {
+	min-height: 53px;
+	min-width: 52px;
+	margin-bottom: 1px;
 }
 
 .meme-editor {
 	height: 710px;
-	margin-top: 30px;
-	margin-bottom: 30px;
 	justify-content: center;
 	align-items: center;
 }
 
+canvas {
+	padding-right: 35px;
+}
+
 .meme-controls {
 	max-width: 300px;
-	max-height: 300px;
+	height: 450px;
 	display: grid;
 	grid-template: 1fr 1fr 1fr 1fr 2fr 1fr / 1fr 1fr 1fr 1fr 1fr;
 	grid-template-areas:
@@ -164,7 +177,6 @@ nav li:last-child {
 		'share share . download download';
 	gap: 10px;
 	width: 50%;
-	margin-left: 10px;
 }
 
 .text-input {

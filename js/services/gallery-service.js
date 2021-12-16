@@ -50,37 +50,3 @@ function _createGallery() {
 		}));
 	}
 }
-
-// function getImgs() {
-// 	var books = gBooks;
-// 	const startIdx = gPageIdx * PAGE_SIZE;
-// 	books = books.slice(startIdx, startIdx + PAGE_SIZE);
-// 	return books;
-// }
-
-// Utils- delete
-// function _createBooks(name, imgIdx) {
-// 	var books = loadFromStorage(STORAGE_KEY);
-// 	if (!books || !books.length) {
-// 		var books = (gBooks = gNames.map((name) => {
-// 			return _createBook(name);
-// 		}));
-// 	}
-// 	gBooks = books;
-// 	_saveBooksToStorage();
-// }
-
-// function _createBook(name, price = getRandomIntInclusive(10, 100)) {
-// 	gNextId++;
-// 	return {
-// 		id: gNextId,
-// 		name: name,
-// 		price: price + '₪',
-// 		img: `<img src="imgs/${gNextId}.jpg" alt="">`,
-// 		rate: 0,
-// 	};
-// }
-
-// function addImage () {
-//     gMaxIdx++
-// }

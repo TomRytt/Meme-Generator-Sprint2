@@ -12,7 +12,7 @@ function loadFromStorage(key) {
 // Meme Handling
 // Downloads and Uploads
 function downloadCanvas(elLink) {
-	const data = gCanvas.toDataURL();
+	const data = gElCanvas.toDataURL();
 	elLink.href = data;
 	elLink.download = 'my-img.jpg';
 }
@@ -21,14 +21,14 @@ function drawImgFromlocal() {
 	var img = new Image();
 	img.src = 'img/1.jpg';
 	img.onload = () => {
-		gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height); //img,x,y,xend,yend
+		gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height); //img,x,y,xend,yend
 	};
 }
 
 // Image handling
 
 function downloadImg(elLink) {
-	var imgContent = gCanvas.toDataURL('img/jpeg');
+	var imgContent = gElCanvas.toDataURL('img/jpeg');
 	elLink.href = imgContent;
 }
 
@@ -51,12 +51,12 @@ function loadImageFromInput(ev, onImageReady) {
 }
 
 function renderImg(img) {
-	gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
+	gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height);
 }
 
 // Upload Service
 function uploadImg() {
-	const imgDataUrl = gCanvas.toDataURL('img/jpeg');
+	const imgDataUrl = gElCanvas.toDataURL('img/jpeg');
 	console.log(imgDataUrl);
 
 	// A function to be called if request succeeds

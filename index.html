@@ -27,7 +27,7 @@
 				</nav>
 			</div>
 		</header>
-		<div class="search-bar flex main-layout hide">
+		<div class="search-bar flex main-layout">
 			<div class="search-keyword">
 				<input type="text" placeholder="Enter search keyword" />
 			</div>
@@ -121,7 +121,15 @@
 					</button>
 					<button class="sticker-btn">Stickers</button>
 					<button class="share-btn">Share</button>
-					<button class="download-btn">Download</button>
+					<button class="download-btn">
+						<a
+							class="download-btn"
+							onclick="renderMemeWithoutBox(this)"
+							download="my-img.jpg"
+						>
+							Download</a
+						>
+					</button>
 				</div>
 			</section>
 		</main>
@@ -138,6 +146,9 @@
 				</p>
 			</div>
 		</div>
+
+		<div class="text-box-sizer hide"></div>
+
 		<script src="js/utils.js"></script>
 		<script src="js/services/gallery-service.js"></script>
 		<script src="js/services/upload-download-service.js"></script>
