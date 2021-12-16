@@ -23,13 +23,19 @@ function onClearCanvas() {
 function addListeners() {
 	// addMouseListeners();
 	// addTouchListeners();
-	window.addEventListener('resize', () => {
-		resizeCanvas();
-	});
+	// 	window.addEventListener('resize', () => {
+	// 		resizeCanvas();
+	// 	});
+}
+
+function onSetFont(value) {
+	setFont(value);
+	renderMeme();
 }
 
 function onImgSelect(elImg) {
 	var memeImg = getImgById(elImg.id);
+	showEditor();
 	setImg(memeImg);
 	renderMeme();
 }
@@ -44,6 +50,16 @@ function onAddLine() {
 	renderMeme();
 }
 
+function onArrowUp() {
+	arrowUp();
+	renderMeme();
+}
+
+function onArrowDown() {
+	arrowDown();
+	renderMeme();
+}
+
 function onSwitchLine() {
 	switchLine();
 	renderMeme();
@@ -54,8 +70,28 @@ function onSetColor(value) {
 	renderMeme();
 }
 
+function onSetStrokeColor(value) {
+	setStrokeColor(value);
+	renderMeme();
+}
+
 function onIncFontSize() {
 	incFontSize();
+	renderMeme();
+}
+
+function onAlignLeft() {
+	alignLeft();
+	renderMeme();
+}
+
+function onAlignCenter() {
+	alignCenter();
+	renderMeme();
+}
+
+function onAlignRight() {
+	alignRight();
 	renderMeme();
 }
 
@@ -66,8 +102,8 @@ function onDecFontSize() {
 
 function renderMeme() {
 	var meme = getMeme();
-	var idx = meme.selectedLineIdx;
-	console.log(idx);
+	// var idx = meme.selectedLineIdx;
+	console.log(meme);
 	var img = new Image();
 	img.src = `images/square-meme-images/${meme.selectedImgId}.jpg`;
 	img.onload = () => {
@@ -76,13 +112,23 @@ function renderMeme() {
 	};
 }
 
+function showEditor() {
+	document.querySelector('.meme-editor').classList.remove('hide');
+	document.querySelector('.img-gallery').classList.add('hide');
+}
+
+function showGallery() {
+	document.querySelector('.meme-editor').classList.add('hide');
+	document.querySelector('.img-gallery').classList.remove('hide');
+}
+
 // function drawMeme()
 
 function addText() {
 	var meme = getMeme();
 	gCtx.beginPath();
 	gCtx.rect(
-		meme.lines[meme.selectedLineIdx].x - 225,
+		meme.lines[meme.selectedLineIdx].x - 130,
 		meme.lines[meme.selectedLineIdx].y - 30,
 		meme.lines[meme.selectedLineIdx].x + 225,
 		60
@@ -95,10 +141,14 @@ function addText() {
 		var txt = line.txt;
 		var fontSize = line.size;
 		var txtColor = line.color;
+		var txtStrokeColor = line.strokeColor;
+		var font = line.font;
 		gCtx.textBaseline = 'middle';
 		gCtx.textAlign = 'center';
 		gCtx.fillStyle = txtColor;
-		gCtx.font = `${fontSize}px monospace`;
+		gCtx.strokeStyle = txtStrokeColor;
+		gCtx.font = `${fontSize}px ${font}`;
+		console.log(gCtx.font);
 		gCtx.fillText(txt, line.x, line.y);
 		gCtx.strokeText(txt, line.x, line.y);
 	});

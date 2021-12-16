@@ -11,24 +11,28 @@ function setFillColor(color) {
 }
 
 var gMeme = {
-	selectedImgId: '',
+	selectedImgId: 5,
 	selectedLineIdx: 0,
 	lines: [
 		{
 			txt: '',
-			size: 50,
+			size: 30,
 			align: 'align',
-			color: 'color',
-			x: 250,
+			strokeColor: 'black',
+			color: 'white',
+			font: 'impact',
+			x: 165,
 			y: 50,
 		},
 		{
 			txt: '',
-			size: 50,
+			size: 30,
 			align: 'align',
-			color: 'color',
-			x: 250,
-			y: 450,
+			strokeColor: 'black',
+			color: 'white',
+			font: 'impact',
+			x: 165,
+			y: 375,
 		},
 	],
 };
@@ -43,31 +47,67 @@ function setLineText(value) {
 
 function setColor(value) {
 	gMeme.lines[gMeme.selectedLineIdx].color = value;
-	console.log(gMeme);
+}
+
+function setStrokeColor(value) {
+	gMeme.lines[gMeme.selectedLineIdx].strokeColor = value;
+}
+
+function setFont(value) {
+	gMeme.lines[gMeme.selectedLineIdx].font = value;
 }
 
 function incFontSize() {
-	gMeme.lines[gMeme.selectedLineIdx].size += 5;
+	if (gMeme.lines[gMeme.selectedLineIdx].size === 65) return;
+	gMeme.lines[gMeme.selectedLineIdx].size += 2.5;
 }
 
 function decFontSize() {
-	gMeme.lines[gMeme.selectedLineIdx].size -= 5;
+	if (gMeme.lines[gMeme.selectedLineIdx].size === 20) return;
+	gMeme.lines[gMeme.selectedLineIdx].size -= 2.5;
 }
 
 function addLine() {
 	gMeme.lines.push({
 		txt: '',
-		size: 50,
+		size: 30,
 		align: 'align',
-		color: 'color',
-		x: 250,
-		y: 250,
+		strokeColor: 'black',
+		color: 'white',
+		font: 'impact',
+		x: 165,
+		y: 180,
 	});
+}
+
+function arrowUp() {
+	if (gMeme.lines[gMeme.selectedLineIdx].y === 40) return;
+	gMeme.lines[gMeme.selectedLineIdx].y -= 10;
+}
+
+function arrowDown() {
+	if (gMeme.lines[gMeme.selectedLineIdx].y === 400) return;
+	gMeme.lines[gMeme.selectedLineIdx].y += 10;
 }
 
 function switchLine() {
 	gMeme.selectedLineIdx++;
 	if (gMeme.selectedLineIdx === gMeme.lines.length) gMeme.selectedLineIdx = 0;
+}
+
+function alignLeft() {
+	gMeme.lines[gMeme.selectedLineIdx].x = 0;
+	renderMeme();
+}
+
+function alignCenter() {
+	gMeme.lines[gMeme.selectedLineIdx].x = 165;
+	renderMeme();
+}
+
+function alignRight() {
+	gMeme.lines[gMeme.selectedLineIdx].x = 415;
+	renderMeme();
 }
 
 function getImgById(elImgId) {
