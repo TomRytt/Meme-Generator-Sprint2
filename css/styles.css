@@ -152,7 +152,7 @@ nav li:last-child {
 }
 
 .meme-editor {
-	height: 80vh;
+	height: 85vh;
 }
 
 .meme-editor img {
@@ -284,6 +284,8 @@ button a {
 
 .footer-container {
 	justify-content: space-between;
+	height: 10vh;
+	align-items: center;
 }
 
 .footer .logo {
@@ -394,10 +396,10 @@ nav li:hover {
 /* Mobile Only- Hamburger */
 @media (max-width: 449px) {
 	header {
-		height: 10vh;
+		height: 5vh;
 	}
 	nav {
-		height: 10vh;
+		height: 5vh;
 	}
 	.main-header img {
 		padding-top: 2vh;
