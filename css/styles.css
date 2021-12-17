@@ -126,9 +126,9 @@ nav li:last-child {
 .div 
 
 /* Editor */
-.canvas-container {
-	max-width: 185px;
-	border: 50px black solid;
+	.canvas-container {
+	width: 350px;
+	height: 350px;
 }
 
 .brush-btn {
@@ -149,6 +149,10 @@ nav li:last-child {
 	left: 50%;
 	transform: translate(-50%, -50%);
 	position: absolute;
+}
+
+.meme-editor {
+	height: 80vh;
 }
 
 .meme-editor img {
@@ -390,7 +394,14 @@ nav li:hover {
 /* Mobile Only- Hamburger */
 @media (max-width: 449px) {
 	header {
-		height: 50px;
+		height: 10vh;
+	}
+	nav {
+		height: 10vh;
+	}
+	.main-header img {
+		padding-top: 2vh;
+		align-self: flex-start;
 	}
 	.nav-items {
 		z-index: 1;
@@ -398,19 +409,19 @@ nav li:hover {
 		flex-direction: column;
 		align-items: center;
 		background-color: cornflowerblue;
-		top: 50px;
+		top: 4.5vh;
 		right: 0;
 		width: 100vw;
-		transform: translateX(100%);
+		transform: translateX(150%);
 	}
 	body.menu-open .nav-items {
 		box-shadow: 0px 0px 30px rgb(0 0 0 / 30%);
 		transform: translateX(0%);
 	}
 	.btn-menu {
-		width: 40px;
-		height: 40px;
-		margin-top: 0.5vh;
+		width: 30px;
+		height: 30px;
+		margin-top: 1.3vh;
 		margin-right: 20px;
 		/* margin-bottom: 0.5vh; */
 	}
@@ -432,6 +443,7 @@ nav li:hover {
 	.canvas-container {
 		width: 350px;
 		height: 350px;
+		margin-bottom: 30px;
 	}
 }
 
@@ -439,7 +451,7 @@ nav li:hover {
 
 @media (min-width: 450px) {
 	body {
-		overflow: hidden;
+		overflow-x: hidden;
 	}
 	header {
 		height: 10vh;
