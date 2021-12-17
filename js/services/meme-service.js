@@ -4,6 +4,7 @@
 // Canvas Colors
 var gFillColor = '#e66465';
 var gStrokeColor = '#f6b73c';
+const STORAGE_KEY = 'memesDB';
 
 // Canvas functions
 function setFillColor(color) {
@@ -125,7 +126,7 @@ function switchLine() {
 }
 
 function alignLeft() {
-	gMeme.lines[gMeme.selectedLineIdx].x = 50;
+	gMeme.lines[gMeme.selectedLineIdx].x = 15;
 	gMeme.lines[gMeme.selectedLineIdx].align = 'left';
 	renderMeme();
 }
@@ -137,7 +138,7 @@ function alignCenter() {
 }
 
 function alignRight() {
-	gMeme.lines[gMeme.selectedLineIdx].x = 400;
+	gMeme.lines[gMeme.selectedLineIdx].x = 475;
 	gMeme.lines[gMeme.selectedLineIdx].align = 'right';
 	renderMeme();
 }

@@ -44,6 +44,7 @@ function addListeners() {
 
 function onSetFont(value) {
 	setFont(value);
+	document.querySelector('.text-box-sizer').style.fontFamily = value;
 	renderMeme();
 }
 
@@ -129,11 +130,13 @@ function renderMeme() {
 function showEditor() {
 	document.querySelector('.meme-editor').classList.remove('hide');
 	document.querySelector('.img-gallery').classList.add('hide');
+	document.querySelector('.search-bar').classList.add('hide');
 }
 
 function showGallery() {
 	document.querySelector('.meme-editor').classList.add('hide');
 	document.querySelector('.img-gallery').classList.remove('hide');
+	document.querySelector('.search-bar').classList.remove('hide');
 }
 
 // function drawMeme()
@@ -165,12 +168,12 @@ function drawRect(meme) {
 	textSize.style.textAlign = currLine.align;
 	textSize.innerText = currLine.txt;
 	textSize.style.fontSize = currLine.size + 'px';
-	var xSize = textSize.clientWidth + 25;
+	var xSize = textSize.clientWidth + 20;
 	var ySize = textSize.clientHeight + 5;
 	if (currLine.align === 'left') {
 		console.log('left');
 		gCtx.beginPath();
-		gCtx.rect(currLine.x, currLine.y - ySize / 2, xSize, ySize);
+		gCtx.rect(currLine.x - 2.5, currLine.y - ySize / 2, xSize, ySize);
 		gCtx.lineWidth = 1;
 		gCtx.strokeStyle = 'black';
 		gCtx.stroke();
@@ -186,7 +189,7 @@ function drawRect(meme) {
 	} else if (currLine.align === 'right') {
 		console.log('right');
 		gCtx.beginPath();
-		gCtx.rect(currLine.x - xSize, currLine.y - ySize / 2, xSize, ySize);
+		gCtx.rect(currLine.x + 2.5 - xSize, currLine.y - ySize / 2, xSize, ySize);
 		gCtx.lineWidth = 1;
 		gCtx.strokeStyle = 'black';
 		gCtx.stroke();

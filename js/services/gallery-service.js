@@ -1,7 +1,7 @@
 'use strict';
 // Global variables
 // var gKeywordSearchCountMap = {funny: 12, cat: 16, baby: 2};
-const STORAGE_KEY = 'ImagesDB';
+// const STORAGE_KEY = 'ImagesDB';
 // Gallery
 var gNextIdx = 0;
 var gMAxIdx = 18;

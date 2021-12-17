@@ -20,6 +20,10 @@ function renderGallery() {
 	document.querySelector('.img-gallery').innerHTML = strHTMLs.join('');
 }
 
+function toggleMenu() {
+	document.body.classList.toggle('menu-open');
+}
+
 // function addMouseListeners() {
 // 	gElCanvas.addEventListener('mousemove', onDraw);
 // 	gElCanvas.addEventListener('mousedown', onStartDrawing);

@@ -11,10 +11,7 @@
 
 body {
 	margin: 0;
-	/* background-color: aqua; */
-	overflow: hidden;
-	/* padding: 0; */
-	height: 100vh;
+	overflow-x: hidden;
 }
 
 ul {
@@ -36,10 +33,9 @@ img {
 /* Header */
 
 header {
-	/* display: flex; */
+	height: 3.5vh;
 	background-color: cornflowerblue;
 	margin: 0 auto;
-	/* box-shadow: inset 0px -6px 0 rgb(30, 30, 30); */
 }
 
 a {
@@ -53,7 +49,7 @@ a {
 }
 
 .main-header .logo {
-	padding-left: 5px;
+	padding-inline: 5px;
 	display: flex;
 	align-items: center;
 }
@@ -63,35 +59,63 @@ nav {
 	justify-content: space-between;
 }
 
+.navbar {
+	display: flex;
+	letter-spacing: 1px;
+	color: #ffffff;
+	justify-content: space-between;
+}
+
+nav li {
+	color: white;
+	font-size: 30px;
+	width: 125px;
+	height: 10vh;
+	border-left: 2px dashed whitesmoke;
+}
+
+nav li:last-child {
+	border-right: 2px dashed whitesmoke;
+}
+
 /* Search */
 
 .search-bar {
 	margin-top: 20px;
-	height: 50px;
+	margin-bottom: 30px;
+	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
-	font-size: 30px;
+	font-size: 1.2rem;
+	gap: 20px;
 }
 
 .search-bar span {
-	padding-inline: 10px;
+	margin-inline: 10px;
+	text-transform: capitalize;
 }
 
-.search {
+.search input {
 	margin-top: 50px;
 	background-color: #fff;
 	height: 55px;
 }
 
+.search-bar input {
+	border: none;
+	box-shadow: inset 0 -1px black;
+	font-size: 1.2rem;
+}
+
 /* Gallery */
 .img-gallery {
-	/* background-color: wheat; */
-	padding: auto;
-	margin-top: 20px;
-	margin-bottom: 20px;
-	min-height: 100%;
-	height: 670px;
-	grid-template: repeat(3, 1fr) / repeat(6, 1fr);
+	display: grid;
+	/* height: 80vh; */
+	/* margin-top: 20px; */
+	/* margin-bottom: 20px; */
+	grid-template:
+		1fr
+		/ repeat(2, 1fr);
 	gap: 10px;
 }
 
@@ -102,6 +126,11 @@ nav {
 .div 
 
 /* Editor */
+.canvas-container {
+	max-width: 185px;
+	border: 50px black solid;
+}
+
 .brush-btn {
 	position: relative;
 }
@@ -122,50 +151,27 @@ nav {
 	position: absolute;
 }
 
-.navbar {
-	display: flex;
-	letter-spacing: 1px;
-	color: #ffffff;
-	justify-content: space-between;
-}
-
-nav li {
-	color: white;
-	font-size: 30px;
-	width: 125px;
-	height: 80px;
-	border-left: 2px dashed whitesmoke;
-}
-
-nav li:last-child {
-	border-right: 2px dashed whitesmoke;
-}
-
 .meme-editor img {
 	object-fit: contain;
-	height: 35px;
-	width: 35px;
+	height: 20px;
+	width: 20px;
 }
 
 .meme-editor button {
-	min-height: 53px;
-	min-width: 52px;
+	min-height: 35px;
+	min-width: 35px;
 	margin-bottom: 1px;
 }
 
-.meme-editor {
-	height: 710px;
-	justify-content: center;
-	align-items: center;
-}
-
-canvas {
-	padding-right: 35px;
+button a {
+	height: inherit;
+	width: inherit;
+	cursor: pointer;
 }
 
 .meme-controls {
-	max-width: 300px;
-	height: 450px;
+	width: 350px;
+	max-height: 200px;
 	display: grid;
 	grid-template: 1fr 1fr 1fr 1fr 2fr 1fr / 1fr 1fr 1fr 1fr 1fr;
 	grid-template-areas:
@@ -174,13 +180,24 @@ canvas {
 		'font-up font-down align-left align-center align-right '
 		'font-style  font-style font-style stroke-color font-color'
 		'sticker sticker sticker sticker sticker'
-		'share share . download download';
+		'share share save download download';
 	gap: 10px;
-	width: 50%;
+	margin-bottom: 80px;
 }
 
+.meme-controls select {
+	width: 100%;
+	height: 53px;
+	text-align: center;
+	border-radius: 10px;
+	/* font-size: 30px; */
+	text-transform: capitalize;
+}
+
+/* Grid Areas */
 .text-input {
 	grid-area: text;
+	height: 3rem;
 }
 .arrow-up-btn {
 	grid-area: arrow-up;
@@ -233,8 +250,18 @@ canvas {
 .share-btn {
 	grid-area: share;
 }
+
+.save-btn {
+	grid-area: save;
+}
+
 .download-btn {
 	grid-area: download;
+}
+
+.download-btn a {
+	width: inherit;
+	height: inherit;
 }
 
 /* Footer */
@@ -245,9 +272,9 @@ canvas {
 }
 
 .footer {
-	margin-top: 10px;
+	/* margin-top: 10px; */
 	bottom: 0;
-	height: 80px;
+	height: 10vh;
 	background-color: cornflowerblue;
 }
 
@@ -277,7 +304,8 @@ canvas {
 
 .main-layout {
 	margin-inline: auto;
-	max-width: 1200px;
+	max-width: 400px;
+	min-width: 350px;
 }
 
 .grid {
@@ -293,4 +321,222 @@ canvas {
 	position: absolute;
 	z-index: -1;
 	top: -150%;
+}
+
+.column {
+	flex-direction: column;
+}
+.justify-center {
+	justify-content: center;
+}
+.align-center {
+	align-items: center;
+}
+
+/* SCREENS */
+
+.main-screen {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.35);
+	cursor: pointer;
+	opacity: 0;
+	pointer-events: none;
+
+	transition: opacity 0.6s;
+}
+
+body.menu-open .main-screen {
+	pointer-events: auto;
+	opacity: 1;
+}
+
+/* Hover Effects */
+img:hover {
+	cursor: pointer;
+}
+
+.main-header .logo:hover {
+	opacity: 0.8;
+	box-shadow: 0px 0px 12px whitesmoke;
+	cursor: pointer;
+}
+
+nav li:hover {
+	cursor: pointer;
+	box-shadow: inset 0px -6px 0px rgba(181, 243, 230, 0.726);
+}
+
+.search-bar span:hover {
+	cursor: pointer;
+	font-size: 1.25rem;
+	font-weight: 700;
+	box-shadow: inset 0px -1px 0px rgb(0, 195, 255);
+}
+
+.img-gallery img:hover {
+	max-height: 180px;
+	opacity: 0.9;
+	box-shadow: #fff 0 -1px 10px, rgb(0, 225, 255) 0 -2px 10px,
+		#4c00ff 0 -10px 20px, rgb(22, 1, 61) 0 -18px 40px,
+		5px 5px 15px 5px rgba(0, 0, 0, 0);
+}
+
+/* BREAKPOINTS */
+
+/* Mobile Only- Hamburger */
+@media (max-width: 449px) {
+	header {
+		height: 50px;
+	}
+	.nav-items {
+		z-index: 1;
+		position: absolute;
+		flex-direction: column;
+		align-items: center;
+		background-color: cornflowerblue;
+		top: 50px;
+		right: 0;
+		width: 100vw;
+		transform: translateX(100%);
+	}
+	body.menu-open .nav-items {
+		box-shadow: 0px 0px 30px rgb(0 0 0 / 30%);
+		transform: translateX(0%);
+	}
+	.btn-menu {
+		width: 40px;
+		height: 40px;
+		margin-top: 0.5vh;
+		margin-right: 20px;
+		/* margin-bottom: 0.5vh; */
+	}
+	nav li {
+		display: flex;
+		border-bottom: 1px solid #e1e0e0;
+		/* display: block; */
+		padding: 6px 5px;
+		width: 100vw;
+		height: 25%;
+		align-self: center;
+		transition: background-color 0.3s;
+		font-size: 20px;
+	}
+	nav li:hover {
+		background-color: rgba(238, 238, 238, 0.356);
+		box-shadow: none;
+	}
+	.canvas-container {
+		width: 350px;
+		height: 350px;
+	}
+}
+
+/* Desktop */
+
+@media (min-width: 450px) {
+	body {
+		overflow: hidden;
+	}
+	header {
+		height: 10vh;
+	}
+	.main-layout {
+		max-width: 1200px;
+		margin-inline: auto;
+	}
+	.img-gallery {
+		/* margin-top: 20px; */
+		/* margin-bottom: 20px; */
+		min-height: 100%;
+		height: 70vh;
+		grid-template:
+			repeat(auto-fill, 185px)
+			/ repeat(auto-fill, 185px);
+	}
+	.search-bar {
+		flex-direction: row;
+		height: 10vh;
+		justify-content: space-between;
+		align-items: center;
+		font-size: 30px;
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+	.btn-menu {
+		display: none;
+	}
+	.search-bar span:hover {
+		cursor: pointer;
+		font-size: 40px;
+		font-weight: 700;
+		box-shadow: inset 0px -1px 0px rgb(0, 195, 255);
+	}
+	canvas {
+		padding-right: 35px;
+	}
+	.meme-editor {
+		width: 1200px;
+		height: 80vh;
+		justify-content: center;
+		align-items: center;
+		flex-direction: row;
+	}
+	.meme-controls {
+		width: 400px;
+		max-height: 550px;
+		height: 550px;
+		display: grid;
+		grid-template: 1fr 1fr 1fr 1fr 1fr 1fr / 1fr 1fr 1fr 1fr 1fr;
+		grid-template-areas:
+			'text text text text text '
+			'arrow-up arrow-down switch add-line delete-btn'
+			'font-up font-down align-left align-center align-right '
+			'font-style  font-style font-style stroke-color font-color'
+			'sticker sticker sticker sticker sticker'
+			'share share save download download';
+		gap: 10px;
+		/* width: 45%; */
+		/* margin-inline: auto; */
+		padding-inline: 25px;
+		margin-bottom: 0;
+	}
+	.canvas-container {
+		/* max-width: 400px; */
+		height: 550px;
+		width: 550px;
+	}
+	canvas {
+		padding: 0;
+	}
+	.meme-editor img {
+		object-fit: contain;
+		height: 35px;
+		width: 35px;
+	}
+	.meme-editor button {
+		min-height: 53px;
+		min-width: 52px;
+		max-height: 53px;
+		max-width: 52px;
+		margin-bottom: 1px;
+	}
+	.meme-editor .download-btn {
+		max-width: unset;
+	}
+	.meme-editor .sticker-btn {
+		max-width: unset;
+		max-height: unset;
+	}
+	footer {
+		bottom: 0;
+		height: 10vh;
+	}
+	.footer-container {
+		height: 10vh;
+		align-items: center;
+	}
 }

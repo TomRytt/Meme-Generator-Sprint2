@@ -9,39 +9,49 @@
 		<title>Tom Rytt-Sprint 2</title>
 	</head>
 	<body onload="onInit()">
+		<div class="main-screen" onclick="toggleMenu()"></div>
 		<header class="header">
 			<div class="main-header main-layout flex">
 				<nav class="flex">
-					<div class="logo flex">
-						<a onclick="showGallery()">
-							<img src="./images/logo/logo.png" alt="" />
-						</a>
+					<div onclick="showGallery()" class="logo flex">
+						<img src="./images/logo/logo.png" alt="" />
 					</div>
 					<ul class="nav-items flex">
-						<li class="nav-gallery flex">
-							<a onclick="showGallery()">Gallery</a>
+						<li onclick="showGallery()" class="nav-gallery flex">
+							<a>Gallery</a>
 						</li>
-						<li class="nav-savded memes flex">Memes</li>
-						<li class="nav-about flex">About</li>
+						<li onclick="showGallery()" class="nav-savded memes flex">Memes</li>
+						<li onclick="showGallery()" class="nav-about flex">About</li>
 					</ul>
+					<button class="btn-menu" onclick="toggleMenu()">☰</button>
 				</nav>
 			</div>
 		</header>
 		<div class="search-bar flex main-layout">
 			<div class="search-keyword">
-				<input type="text" placeholder="Enter search keyword" />
+				<input type="text" placeholder="Enter search keyword 🔎" />
 			</div>
 			<div class="keywords">
-				<span>funny </span><span>comics </span><span>dogs</span
-				><span>drinks </span><span>books</span>
+				<span>Funny </span><span>Comics </span><span>Dogs</span
+				><span>Drinks </span><span>Books</span>
 			</div>
 		</div>
 
 		<main class="main main-layout">
 			<section class="img-gallery grid main-layout"></section>
-			<section class="meme-editor main-layout flex hide">
+			<section
+				class="
+					meme-editor
+					main-layout
+					flex
+					column
+					justify-center
+					align-center
+					hide
+				"
+			>
 				<div class="canvas-container">
-					<canvas class="canvas" width="450" height="440"></canvas>
+					<canvas class="canvas"></canvas>
 				</div>
 				<div class="meme-controls">
 					<input
@@ -121,6 +131,7 @@
 					</button>
 					<button class="sticker-btn">Stickers</button>
 					<button class="share-btn">Share</button>
+					<button class="save-btn">Save</button>
 					<button class="download-btn">
 						<a
 							class="download-btn"
