@@ -10,6 +10,26 @@ function onInit() {
 	resizeCanvas();
 }
 
+function onSetKeyword(elKeyword) {
+	console.log(elKeyword);
+	console.log(elKeyword.toLowerCase());
+	showGallery();
+	console.log(gImgs[0].keyWords[0]['keyword1']);
+	console.log(gImgs);
+	var filteredImgs = gImgs.filter(
+		(img) =>
+			img.keyWords[0]['keyword1'] === elKeyword.toLowerCase() ||
+			img.keyWords[0]['keyword2'] === elKeyword.toLowerCase()
+	);
+
+	const strHTMLs = filteredImgs.map((img) => {
+		return `
+	    <div id="${img.id}" onclick="onImgSelect(this)" class="img img${img.id}"><img src="${img.url}" alt=""></div>
+	    `;
+	});
+	document.querySelector('.img-gallery').innerHTML = strHTMLs.join('');
+}
+
 function renderGallery() {
 	showGallery();
 	const strHTMLs = gImgs.map((img) => {
