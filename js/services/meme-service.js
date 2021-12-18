@@ -4,12 +4,11 @@
 // Canvas Colors
 var gSavedMemes = [];
 var gNewMemeIdx = 19;
+var gElCanvas = 5;
 const STORAGE_KEY = 'memesDB';
+var gUserImg = loadFromStorage('newImagesDB');
 
 // Canvas functions
-function setFillColor(color) {
-	gFillColor = color;
-}
 
 var gMeme = {
 	selectedImgId: 5,
@@ -33,7 +32,7 @@ var gMeme = {
 			color: 'white',
 			font: 'impact',
 			x: 15,
-			y: 375,
+			y: gElCanvas.height - 20,
 		},
 	],
 };
@@ -61,7 +60,7 @@ function resetGmeme() {
 				color: 'white',
 				font: 'impact',
 				x: 15,
-				y: 375,
+				y: gElCanvas.height - 20,
 			},
 		],
 	};
@@ -99,24 +98,24 @@ function decFontSize() {
 
 function addLine() {
 	gMeme.lines.push({
-		txt: '',
+		txt: 'New Line',
 		size: 30,
 		align: 'left',
 		strokeColor: 'black',
 		color: 'white',
 		font: 'impact',
 		x: 15,
-		y: 180,
+		y: gElCanvas.height / 2,
 	});
 }
 
 function arrowUp() {
-	if (gMeme.lines[gMeme.selectedLineIdx].y === 40) return;
+	if (gMeme.lines[gMeme.selectedLineIdx].y === 30) return;
 	gMeme.lines[gMeme.selectedLineIdx].y -= 10;
 }
 
 function arrowDown() {
-	if (gMeme.lines[gMeme.selectedLineIdx].y === 400) return;
+	if (gMeme.lines[gMeme.selectedLineIdx].y === gElCanvas.height - 50) return;
 	gMeme.lines[gMeme.selectedLineIdx].y += 10;
 }
 
@@ -137,13 +136,13 @@ function alignLeft() {
 }
 
 function alignCenter() {
-	gMeme.lines[gMeme.selectedLineIdx].x = 200;
+	gMeme.lines[gMeme.selectedLineIdx].x = gElCanvas.width / 2;
 	gMeme.lines[gMeme.selectedLineIdx].align = 'center';
 	renderMeme();
 }
 
 function alignRight() {
-	gMeme.lines[gMeme.selectedLineIdx].x = 475;
+	gMeme.lines[gMeme.selectedLineIdx].x = gElCanvas.width - 10;
 	gMeme.lines[gMeme.selectedLineIdx].align = 'right';
 	renderMeme();
 }
@@ -164,4 +163,8 @@ function saveMeme() {
 	gSavedMemes.push(currMeme);
 	saveToStorage(STORAGE_KEY, gSavedMemes);
 	gNewMemeIdx++;
+}
+
+function getUserImg() {
+	return gUserImg;
 }

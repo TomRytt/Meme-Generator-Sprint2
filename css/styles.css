@@ -144,6 +144,10 @@ nav li:last-child {
 	position: relative;
 }
 
+.upload-input {
+	position: relative;
+}
+
 .btn-input {
 	top: 50%;
 	left: 50%;
@@ -174,6 +178,8 @@ nav li:last-child {
 	min-height: 35px;
 	min-width: 35px;
 	margin-bottom: 1px;
+	font-size: 1.5rem;
+	background-color: cornflowerblue;
 }
 
 button a {
@@ -329,17 +335,17 @@ button a {
 	z-index: 5;
 	top: 55%;
 	left: 20%;
-	height: 250px;
-	width: 250px;
+	height: 7em;
+	width: 5em;
 	border-radius: 25%;
-	background-color: cornflowerblue;
+	background-color: rgb(64, 131, 255);
 	color: whitesmoke;
 	text-align: center;
 }
 
 .modal button {
 	width: 80px;
-	height: 50px;
+	height: 4em;
 	border-radius: 2em;
 	background-color: rgb(49, 184, 241);
 	color: whitesmoke;
@@ -349,15 +355,15 @@ button a {
 	outline-style: none;
 }
 .modal img {
-	max-height: 250px;
+	max-height: 150px;
 	border-radius: 50%;
 	margin: 0;
 }
 .about-modal {
-	width: 400px;
-	height: 400px;
-	left: 50%;
-	top: 50%;
+	width: 250px;
+	height: 250px;
+	left: 10%;
+	top: 40%;
 }
 /* .share-modal {
 } */
@@ -473,7 +479,7 @@ nav li:hover {
 /* BREAKPOINTS */
 
 /* Mobile Only- Hamburger */
-@media (max-width: 449px) {
+@media (max-width: 800px) {
 	header {
 		height: 6vh;
 	}
@@ -528,7 +534,7 @@ nav li:hover {
 
 /* Desktop */
 
-@media (min-width: 450px) {
+@media (min-width: 800px) {
 	html {
 		font-size: 16px;
 	}
@@ -642,5 +648,10 @@ nav li:hover {
 		left: 50%;
 		transform: translate(-50%, -50%);
 		top: 50%;
+		width: 400px;
+		height: 400px;
+	}
+	.modal img {
+		max-height: 250px;
 	}
 }

@@ -36,7 +36,19 @@
 			</header>
 			<div class="search-bar flex main-layout">
 				<div class="search-keyword">
-					<input type="text" placeholder="Enter search keyword 🔎" />
+					<input
+						list="keywords"
+						type="text"
+						name="keywords"
+						placeholder="Enter search keyword 🔎"
+					/>
+					<datalist id="keywords">
+						<option value="Funny"></option>
+						<option value="Political"></option>
+						<option value="Animal"></option>
+						<option value="Cute"></option>
+						<option value="Movie"></option>
+					</datalist>
 				</div>
 				<div class="keywords">
 					<span>Funny </span><span>Political </span><span>Animal</span
@@ -136,15 +148,16 @@
 								onchange="onSetColor(this.value)"
 							/>
 						</button>
-						<button class="upload-btn">Upload Your Own Meme</button>
-
-						<!-- <div class="inputs">
-			<input
-				type="file"
-				class="file-input btn"
-				name="image"
-				onchange="onImgInput(event)"
-			/> -->
+						<button class="upload-btn">
+							<label for="upload-input"> Upload Your Own Meme </label>
+							<input
+								type="file"
+								class="upload-input btn-input"
+								id="upload-input"
+								name="image"
+								onchange="onImgInput(event)"
+							/>
+						</button>
 
 						<button onclick="renderShareModal()" class="open-share-modal-btn">
 							Share & Download
@@ -166,7 +179,7 @@
 						Meme Generator
 					</p>
 				</div>
-
+				<div class="share-container"></div>
 				<div class="text-box-sizer hide"></div>
 			</div>
 		</div>

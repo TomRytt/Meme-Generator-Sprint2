@@ -1,10 +1,5 @@
 // Meme Handling
 // Downloads and Uploads
-// function downloadCanvas(elLink) {
-// 	const data = gElCanvas.toDataURL();
-// 	elLink.href = data;
-// 	elLink.download = 'my-img.jpg';
-// }
 
 function drawImgFromlocal() {
 	var img = new Image();
@@ -22,26 +17,26 @@ function downloadImg(elLink) {
 }
 
 function onImgInput(ev) {
-	loadImageFromInput(ev, renderImg);
+	loadImageFromInput(ev, renderMeme);
 }
 
 function loadImageFromInput(ev, onImageReady) {
-	document.querySelector('.canvas-container').innerHTML = '';
+	document.querySelector('.share-container').innerHTML = '';
 	var reader = new FileReader();
-
 	reader.onload = (event) => {
-		console.log('onload');
 		var img = new Image();
 		img.onload = onImageReady.bind(null, img);
 		img.src = event.target.result;
-		renderNewMeme(img.src);
+		saveToStorage('newImagesDB', img.src);
+		gMeme.selectedImgId = gKeywords.length;
+		_createImg('user', 'user', img.src);
 	};
 	reader.readAsDataURL(ev.target.files[0]);
 }
 
-function renderImg(img) {
-	gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height);
-}
+// function renderImg(img) {
+// 	gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height);
+// }
 
 // Upload Service
 function uploadImg() {

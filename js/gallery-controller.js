@@ -8,7 +8,6 @@ function onInit() {
 	gElCanvas = document.querySelector('canvas');
 	gCtx = gElCanvas.getContext('2d');
 	resizeCanvas();
-	// addListeners();
 }
 
 function renderGallery() {
@@ -34,18 +33,4 @@ function renderSavedMemesGallery() {
 
 function toggleMenu() {
 	document.body.classList.toggle('menu-open');
-	// document.querySelector('.share-modal').classList.toggle('hide');
 }
-
-// function addMouseListeners() {
-// 	gElCanvas.addEventListener('mousemove', onDraw);
-// 	gElCanvas.addEventListener('mousedown', onStartDrawing);
-// 	gElCanvas.addEventListener('mouseup', onStopDrawing);
-// 	gElCanvas.addEventListener('mouseleave', onStopDrawing);
-// }
-
-// function addTouchListeners() {
-// 	gElCanvas.addEventListener('touchmove', onMove);
-// 	gElCanvas.addEventListener('touchstart', onDown);
-// 	gElCanvas.addEventListener('touchend', onUp);
-// }
