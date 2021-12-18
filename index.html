@@ -11,20 +11,24 @@
 	<body onload="onInit()">
 		<div class="overflow-hidden">
 			<div class="main-screen" onclick="toggleMenu()"></div>
+			<div class="modal-screen" onclick="toggleModal()"></div>
 			<header class="header">
 				<div class="main-header main-layout flex">
 					<nav class="flex">
-						<div onclick="showGallery()" class="logo flex">
+						<div onclick="renderGallery()" class="logo flex">
 							<img src="./images/logo/logo.png" alt="" />
 						</div>
 						<ul class="nav-items flex">
-							<li onclick="showGallery()" class="nav-gallery flex">
+							<li onclick="renderGallery()" class="nav-gallery flex">
 								<a>Gallery</a>
 							</li>
-							<li onclick="showGallery()" class="nav-savded memes flex">
+							<li
+								onclick="renderSavedMemesGallery()"
+								class="nav-savded memes flex"
+							>
 								Memes
 							</li>
-							<li onclick="showGallery()" class="nav-about flex">About</li>
+							<li onclick="renderAboutModal()" class="nav-about flex">About</li>
 						</ul>
 						<button class="btn-menu" onclick="toggleMenu()">☰</button>
 					</nav>
@@ -35,8 +39,8 @@
 					<input type="text" placeholder="Enter search keyword 🔎" />
 				</div>
 				<div class="keywords">
-					<span>Funny </span><span>Comics </span><span>Dogs</span
-					><span>Drinks </span><span>Books</span>
+					<span>Funny </span><span>Political </span><span>Animal</span
+					><span>Cute </span><span>Movie</span>
 				</div>
 			</div>
 
@@ -77,7 +81,7 @@
 						<button class="add-line-btn" onclick="onAddLine()">
 							<img src="./images/icons/add.png" alt="" />
 						</button>
-						<button class="delete-btn">
+						<button class="delete-btn" onclick="onRemoveLine()">
 							<img src="./images/icons/trash.png" alt="" />
 						</button>
 						<button class="inc-font-btn" onclick="onIncFontSize()">
@@ -132,28 +136,31 @@
 								onchange="onSetColor(this.value)"
 							/>
 						</button>
-						<button class="sticker-btn">Stickers</button>
-						<button class="share-btn">Share</button>
-						<button class="save-btn">Save</button>
-						<button class="download-btn">
-							<a
-								class="download-btn"
-								onclick="renderMemeWithoutBox(this)"
-								download="my-img.jpg"
-							>
-								Download</a
-							>
+						<button class="upload-btn">Upload Your Own Meme</button>
+
+						<!-- <div class="inputs">
+			<input
+				type="file"
+				class="file-input btn"
+				name="image"
+				onchange="onImgInput(event)"
+			/> -->
+
+						<button onclick="renderShareModal()" class="open-share-modal-btn">
+							Share & Download
 						</button>
 					</div>
 				</section>
 			</main>
+
+			<div class="modal hide"></div>
 
 			<div class="footer">
 				<div class="footer-container main-layout flex">
 					<div class="logo flex">
 						<img src="./images/logo/logo.png" alt="" />
 					</div>
-					<p class="footer-text flex">
+					<p class="footer-text flex" onclick="renderAboutModal()">
 						Tom Rytt &#169; <br />
 						CA 2nd Sprint <br />
 						Meme Generator
@@ -164,6 +171,7 @@
 			</div>
 		</div>
 		<script src="js/utils.js"></script>
+		<script src="js/services/storage-services.js"></script>
 		<script src="js/services/gallery-service.js"></script>
 		<script src="js/services/upload-download-service.js"></script>
 		<script src="js/services/meme-service.js"></script>

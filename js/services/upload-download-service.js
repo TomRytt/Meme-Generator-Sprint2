@@ -1,21 +1,10 @@
-'use strict';
-
-function saveToStorage(key, val) {
-	localStorage.setItem(key, JSON.stringify(val));
-}
-
-function loadFromStorage(key) {
-	var val = localStorage.getItem(key);
-	return JSON.parse(val);
-}
-
 // Meme Handling
 // Downloads and Uploads
-function downloadCanvas(elLink) {
-	const data = gElCanvas.toDataURL();
-	elLink.href = data;
-	elLink.download = 'my-img.jpg';
-}
+// function downloadCanvas(elLink) {
+// 	const data = gElCanvas.toDataURL();
+// 	elLink.href = data;
+// 	elLink.download = 'my-img.jpg';
+// }
 
 function drawImgFromlocal() {
 	var img = new Image();
@@ -37,7 +26,7 @@ function onImgInput(ev) {
 }
 
 function loadImageFromInput(ev, onImageReady) {
-	document.querySelector('.share-container').innerHTML = '';
+	document.querySelector('.canvas-container').innerHTML = '';
 	var reader = new FileReader();
 
 	reader.onload = (event) => {
@@ -45,8 +34,8 @@ function loadImageFromInput(ev, onImageReady) {
 		var img = new Image();
 		img.onload = onImageReady.bind(null, img);
 		img.src = event.target.result;
+		renderNewMeme(img.src);
 	};
-	console.log('after');
 	reader.readAsDataURL(ev.target.files[0]);
 }
 

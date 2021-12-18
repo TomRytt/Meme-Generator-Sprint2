@@ -186,14 +186,14 @@ button a {
 	width: 350px;
 	max-height: 200px;
 	display: grid;
-	grid-template: 1fr 1fr 1fr 1fr 2fr 1fr / 1fr 1fr 1fr 1fr 1fr;
+	grid-template: 1fr 1fr 1fr 1fr 1fr 1fr / 1fr 1fr 1fr 1fr 1fr;
 	grid-template-areas:
 		'text text text text text '
 		'arrow-up arrow-down switch add-line delete-btn'
 		'font-up font-down align-left align-center align-right '
 		'font-style  font-style font-style stroke-color font-color'
-		'sticker sticker sticker sticker sticker'
-		'share share save download download';
+		'upload upload upload upload upload'
+		'share share share share share';
 	gap: 10px;
 	margin-bottom: 80px;
 }
@@ -210,7 +210,9 @@ button a {
 /* Grid Areas */
 .text-input {
 	grid-area: text;
-	height: 3rem;
+	height: 5rem;
+	font-size: 1.2rem;
+	/* text-align: center; */
 }
 .arrow-up-btn {
 	grid-area: arrow-up;
@@ -257,10 +259,10 @@ button a {
 .brush-btn {
 	grid-area: font-color;
 }
-.sticker-btn {
-	grid-area: sticker;
+.upload-btn {
+	grid-area: upload;
 }
-.share-btn {
+.open-share-modal-btn {
 	grid-area: share;
 }
 
@@ -313,8 +315,52 @@ button a {
 	margin: 0;
 	align-items: center;
 	text-align: center;
+	cursor: pointer;
 }
 
+/* Modal */
+
+.modal {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	position: fixed;
+	z-index: 5;
+	top: 55%;
+	left: 20%;
+	height: 250px;
+	width: 250px;
+	border-radius: 25%;
+	background-color: cornflowerblue;
+	color: whitesmoke;
+	text-align: center;
+}
+
+.modal button {
+	width: 80px;
+	height: 50px;
+	border-radius: 2em;
+	background-color: rgb(49, 184, 241);
+	color: whitesmoke;
+	outline-style: none;
+}
+.modal button:focus-visible {
+	outline-style: none;
+}
+.modal img {
+	max-height: 250px;
+	border-radius: 50%;
+	margin: 0;
+}
+.about-modal {
+	width: 400px;
+	height: 400px;
+	left: 50%;
+	top: 50%;
+}
+/* .share-modal {
+} */
 /* Helpers */
 
 .main-layout {
@@ -350,6 +396,7 @@ button a {
 
 /* SCREENS */
 
+/* Menu Screen */
 .main-screen {
 	position: fixed;
 	width: 100%;
@@ -365,6 +412,26 @@ button a {
 }
 
 body.menu-open .main-screen {
+	pointer-events: auto;
+	opacity: 1;
+}
+
+/* Modal Screen */
+
+.modal-screen {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.35);
+	cursor: pointer;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.6s;
+}
+
+body.modal-open .modal-screen {
 	pointer-events: auto;
 	opacity: 1;
 }
@@ -398,6 +465,9 @@ nav li:hover {
 	box-shadow: #fff 0 -1px 10px, rgb(0, 225, 255) 0 -2px 10px,
 		#4c00ff 0 -10px 20px, rgb(22, 1, 61) 0 -18px 40px,
 		5px 5px 15px 5px rgba(0, 0, 0, 0);
+}
+.modal button {
+	cursor: pointer;
 }
 
 /* BREAKPOINTS */
@@ -434,12 +504,10 @@ nav li:hover {
 		height: 30px;
 		margin-top: 1.3vh;
 		margin-right: 20px;
-		/* margin-bottom: 0.5vh; */
 	}
 	nav li {
 		display: flex;
 		border-bottom: 1px solid #e1e0e0;
-		/* display: block; */
 		padding: 6px 5px;
 		width: 100vw;
 		height: 25%;
@@ -519,8 +587,8 @@ nav li:hover {
 			'arrow-up arrow-down switch add-line delete-btn'
 			'font-up font-down align-left align-center align-right '
 			'font-style  font-style font-style stroke-color font-color'
-			'sticker sticker sticker sticker sticker'
-			'share share save download download';
+			'upload upload upload upload upload'
+			'share share share share share';
 		gap: 10px;
 		/* width: 45%; */
 		/* margin-inline: auto; */
@@ -536,6 +604,7 @@ nav li:hover {
 		padding: 0;
 	}
 	.meme-editor img {
+		/* filter: grayscale(1); */
 		object-fit: contain;
 		height: 35px;
 		width: 35px;
@@ -544,7 +613,6 @@ nav li:hover {
 		min-height: 53px;
 		min-width: 52px;
 		max-height: 53px;
-		max-width: 52px;
 		margin-bottom: 1px;
 	}
 	.meme-editor .download-btn {
@@ -564,5 +632,15 @@ nav li:hover {
 	}
 	.footer-text {
 		width: 14rem;
+	}
+	.modal {
+		font-size: 2rem;
+		top: 40%;
+		left: 55%;
+	}
+	.about-modal {
+		left: 50%;
+		transform: translate(-50%, -50%);
+		top: 50%;
 	}
 }

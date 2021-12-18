@@ -43,10 +43,7 @@ function _createImg(keyword1, keyword2) {
 }
 
 function _createGallery() {
-	var imgs = loadFromStorage(STORAGE_KEY);
-	if (!imgs || !imgs.length) {
-		var imgs = (gImgs = gKeywords.map((keyword1, keyword2) => {
-			return _createImg(keyword1, keyword2);
-		}));
-	}
+	gImgs = gKeywords.map((keyword1, keyword2) => {
+		return _createImg(keyword1, keyword2);
+	});
 }

@@ -2,8 +2,8 @@
 
 // Global Variables
 // Canvas Colors
-var gFillColor = '#e66465';
-var gStrokeColor = '#f6b73c';
+var gSavedMemes = [];
+var gNewMemeIdx = 19;
 const STORAGE_KEY = 'memesDB';
 
 // Canvas functions
@@ -105,7 +105,7 @@ function addLine() {
 		strokeColor: 'black',
 		color: 'white',
 		font: 'impact',
-		x: 165,
+		x: 15,
 		y: 180,
 	});
 }
@@ -123,6 +123,11 @@ function arrowDown() {
 function switchLine() {
 	gMeme.selectedLineIdx++;
 	if (gMeme.selectedLineIdx === gMeme.lines.length) gMeme.selectedLineIdx = 0;
+}
+
+function removeLine() {
+	gMeme.lines.splice(gMeme.selectedLineIdx, 1);
+	if (gMeme.selectedLineIdx === gMeme.lines.length) gMeme.selectedLineIdx--;
 }
 
 function alignLeft() {
@@ -150,4 +155,13 @@ function getImgById(elImgId) {
 
 function getMeme() {
 	return gMeme;
+}
+
+function saveMeme() {
+	var currMeme = gMeme;
+	currMeme.url = gElCanvas.toDataURL('img/jpeg');
+	currMeme.id = gNewMemeIdx;
+	gSavedMemes.push(currMeme);
+	saveToStorage(STORAGE_KEY, gSavedMemes);
+	gNewMemeIdx++;
 }

@@ -8,10 +8,11 @@ function onInit() {
 	gElCanvas = document.querySelector('canvas');
 	gCtx = gElCanvas.getContext('2d');
 	resizeCanvas();
-	addListeners();
+	// addListeners();
 }
 
 function renderGallery() {
+	showGallery();
 	const strHTMLs = gImgs.map((img) => {
 		return `
         <div id="${img.id}" onclick="onImgSelect(this)" class="img img${img.id}"><img src="${img.url}" alt=""></div>
@@ -20,8 +21,20 @@ function renderGallery() {
 	document.querySelector('.img-gallery').innerHTML = strHTMLs.join('');
 }
 
+function renderSavedMemesGallery() {
+	showGallery();
+	var savedMemes = loadFromStorage(STORAGE_KEY);
+	const strHTMLs = savedMemes.map((meme) => {
+		return `
+        <a href="${meme.url}" download="my-meme.jpg"><img src="${meme.url}" alt=""></a>
+        `;
+	});
+	document.querySelector('.img-gallery').innerHTML = strHTMLs.join('');
+}
+
 function toggleMenu() {
 	document.body.classList.toggle('menu-open');
+	// document.querySelector('.share-modal').classList.toggle('hide');
 }
 
 // function addMouseListeners() {
@@ -35,25 +48,4 @@ function toggleMenu() {
 // 	gElCanvas.addEventListener('touchmove', onMove);
 // 	gElCanvas.addEventListener('touchstart', onDown);
 // 	gElCanvas.addEventListener('touchend', onUp);
-// }
-
-// function onSetFillColor(color) {
-// 	setFillColor(color);
-// }
-
-// function onSetStrokeColor(color) {
-// 	setStrokeColor(color);
-// }
-
-// function drawText(txt, x, y) {
-// 	// gCtx.font = '48px serif';
-// 	// gCtx.fillText(txt, x, y);
-// 	gCtx.textBaseline = 'middle';
-// 	gCtx.textAlign = 'center';
-// 	// gCtx.lineWidth = 2;
-// 	// gCtx.strokeStyle = 'red';
-// 	gCtx.font = '50px monospace';
-// 	gCtx.fillStyle = 'black';
-// 	gCtx.fillText(txt, x, y);
-// 	// gCtx.strokeText(txt, x, y);
 // }
