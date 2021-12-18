@@ -172,6 +172,7 @@ nav li:last-child {
 
 .meme-editor {
 	height: 85vh;
+	margin-bottom: 80px;
 }
 
 .meme-editor img {
@@ -589,6 +590,7 @@ nav li:hover {
 		justify-content: center;
 		align-items: center;
 		flex-direction: row;
+		margin-bottom: 0;
 	}
 	.meme-controls {
 		width: 400px;
