@@ -11,6 +11,11 @@ function onInit() {
 }
 
 function onSetKeyword(elKeyword) {
+	console.log(elKeyword);
+	if (elKeyword === 'all') {
+		renderGallery();
+		showGallery();
+	}
 	var filteredImgs = gImgs.filter(
 		(img) =>
 			img.keyWords[0]['keyword1'] === elKeyword ||

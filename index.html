@@ -44,6 +44,7 @@
 						placeholder="Enter search keyword 🔎 "
 					/>
 					<datalist id="keywords">
+						<option value="all"></option>
 						<option value="funny"></option>
 						<option value="political"></option>
 						<option value="animal"></option>
@@ -52,6 +53,7 @@
 					</datalist>
 				</div>
 				<div class="keywords main-layout">
+					<span onclick="renderGallery()">All</span>
 					<span onclick="onSetKeyword('funny')">Funny </span
 					><span onclick="onSetKeyword('political')">Political </span
 					><span onclick="onSetKeyword('animal')">Animal</span

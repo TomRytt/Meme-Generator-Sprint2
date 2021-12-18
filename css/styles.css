@@ -101,7 +101,7 @@ nav li:last-child {
 
 .keywords {
 	height: 1.5rem;
-	font-size: 1.5rem;
+	font-size: 1.2rem;
 }
 
 .search-bar span {
@@ -372,7 +372,7 @@ button a {
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%, -50%);
-	padding-bottom: 15px;
+	padding-bottom: 10px;
 }
 
 /* Helpers */
@@ -662,5 +662,8 @@ nav li:hover {
 	}
 	.modal img {
 		max-height: 250px;
+	}
+	.keywords {
+		font-size: 2rem;
 	}
 }
