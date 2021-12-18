@@ -13,9 +13,12 @@ html {
 }
 body {
 	margin: 0;
+	width: 100vw;
+	max-height: 1200px;
 }
 
-.wholePage {
+.overflow-hidden {
+	position: relative;
 	overflow-x: hidden;
 }
 
@@ -60,7 +63,7 @@ a {
 }
 
 nav {
-	height: 80px;
+	height: 10vh;
 	width: 100vw;
 	justify-content: space-between;
 }
@@ -305,7 +308,7 @@ button a {
 	font-size: 1.2rem;
 	flex-direction: column;
 	flex-wrap: wrap;
-	width: 14rem;
+	width: 12rem;
 	justify-content: flex-end;
 	margin: 0;
 	align-items: center;
@@ -405,7 +408,7 @@ nav li:hover {
 		height: 6vh;
 	}
 	nav {
-		height: 5vh;
+		height: 6vh;
 	}
 	.main-header img {
 		padding-top: 2vh;
@@ -558,5 +561,8 @@ nav li:hover {
 	.footer-container {
 		height: 10vh;
 		align-items: center;
+	}
+	.footer-text {
+		width: 14rem;
 	}
 }
