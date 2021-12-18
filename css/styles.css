@@ -99,7 +99,13 @@ nav li:last-child {
 	gap: 20px;
 }
 
+.keywords {
+	height: 1.5rem;
+	font-size: 1.5rem;
+}
+
 .search-bar span {
+	height: 1.5rem;
 	margin-inline: 10px;
 	text-transform: capitalize;
 }
@@ -313,7 +319,7 @@ button a {
 
 .footer-text {
 	color: #ffff;
-	font-size: 1.2rem;
+	font-size: 1.5rem;
 	flex-direction: column;
 	flex-wrap: wrap;
 	width: 12rem;
@@ -360,13 +366,15 @@ button a {
 	margin: 0;
 }
 .about-modal {
+	font-size: 1.2rem;
 	width: 250px;
 	height: 250px;
-	left: 10%;
-	top: 40%;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	padding-bottom: 15px;
 }
-/* .share-modal {
-} */
+
 /* Helpers */
 
 .main-layout {
@@ -460,7 +468,7 @@ nav li:hover {
 
 .search-bar span:hover {
 	cursor: pointer;
-	font-size: 1.25rem;
+	font-size: 1.75rem;
 	font-weight: 700;
 	box-shadow: inset 0px -1px 0px rgb(0, 195, 255);
 }
@@ -638,6 +646,7 @@ nav li:hover {
 	}
 	.footer-text {
 		width: 14rem;
+		font-size: 1.5rem;
 	}
 	.modal {
 		font-size: 2rem;

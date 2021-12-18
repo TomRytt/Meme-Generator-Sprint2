@@ -244,6 +244,7 @@ function renderAboutModal() {
 	Tom Rytt
 	<a href="https://github.com/tomrytt"><img class="about-img" src="./images/Tom.png" alt="" /></a>
 	Fullstack Developer Student
+	<br>
 	@ Coding Academy
 	`;
 }
