@@ -79,7 +79,6 @@ nav li {
 	font-size: 2rem;
 	width: 125px;
 	height: 10vh;
-	border-left: 2px dashed whitesmoke;
 }
 
 /* Search */
@@ -724,6 +723,9 @@ nav li:hover {
 
 	.user {
 		font-size: 1.5rem;
+	}
+	nav li {
+		border-left: 2px dashed whitesmoke;
 	}
 	nav li:last-child {
 		border-right: 2px dashed whitesmoke;
