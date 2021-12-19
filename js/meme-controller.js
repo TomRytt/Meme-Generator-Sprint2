@@ -93,7 +93,13 @@ function renderMeme() {
 	var meme = getMeme();
 	var img = new Image();
 	if (meme.selectedImgId === gKeywords.length) {
-		img.src = loadFromStorage('newImagesDB');
+		img.src = loadFromStorage('newImg');
+	} else if (meme.selectedImgId > gKeywords.length) {
+		var userImgs = loadFromStorage('userImgs');
+		var userImage = userImgs.filter(
+			(userImg) => userImg.id === +meme.selectedImgId
+		);
+		img.src = userImage[0].url;
 	} else {
 		img.src = `images/square-meme-images/${meme.selectedImgId}.jpg`;
 	}
@@ -172,7 +178,7 @@ function renderShareModal() {
 	toggleModal();
 	renderMeme();
 	elModal.innerHTML = `
-				<button class="share-btn">Share</button>
+				<button onclick="uploadImg()" class="share-btn">Share On Facebook</button>
 				<button class="save-btn" onclick="onSaveMeme()">Save</button>
 				<button class="download-btn">
 					<a
@@ -209,11 +215,12 @@ function toggleModal() {
 
 function onSaveMeme() {
 	saveMeme();
-	flash();
+	flash('Meme added to "Memes" tab');
 }
 
-function flash() {
+function flash(str) {
 	var flash = document.querySelector('.flash');
+	flash.innerHTML = str;
 	flash.classList.add('open');
 	setTimeout(function () {
 		flash.classList.remove('open');

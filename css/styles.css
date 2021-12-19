@@ -19,11 +19,6 @@ body {
 	/* max-height: 1200px; */
 }
 
-/* .overflow-hidden {
-	position: relative;
-	overflow-x: hidden;
-} */
-
 ul {
 	margin: 0;
 	padding: 0;
@@ -38,6 +33,9 @@ li {
 
 img {
 	max-height: 185px;
+}
+h1 {
+	color: cornflowerblue;
 }
 
 /* Header */
@@ -84,11 +82,6 @@ nav li {
 	border-left: 2px dashed whitesmoke;
 }
 
-nav li:last-child {
-	border-right: 2px dashed whitesmoke;
-	margin-right: 10px;
-}
-
 /* Search */
 
 .search-bar {
@@ -100,8 +93,16 @@ nav li:last-child {
 	gap: 20px;
 }
 
-.keywords {
+.upload-meme-label {
 	font-size: 1.2rem;
+	box-shadow: inset 0 -1px cornflowerblue;
+	font-weight: 700;
+}
+
+.user {
+	font-size: 1.2rem;
+	box-shadow: inset 0 -1px cornflowerblue;
+	font-weight: 700;
 }
 
 .search-bar span {
@@ -113,6 +114,16 @@ nav li:last-child {
 	box-shadow: inset 0 -1px black;
 	font-size: 1.2rem;
 }
+.clear-memes-btn {
+	background-color: cornflowerblue;
+	font-size: 2rem;
+	border-radius: 2em;
+	color: whitesmoke;
+}
+
+/* .upload-meme-label {
+	box-shadow: inset 0 -1px cornflowerblue;
+} */
 
 /* Gallery */
 .img-gallery {
@@ -134,9 +145,8 @@ nav li:last-child {
 /* Editor */
 .canvas-container {
 	margin-top: 20vh;
-	max-width: 250px;
-	min-height: 250px;
-	/* height: 300px; */
+	max-width: 350px;
+	min-height: 350px;
 }
 
 .brush-btn {
@@ -239,12 +249,23 @@ button a {
 	transform: translate(-50%, -50%);
 }
 
+.meme-editor button .open-share-modal-btn {
+	margin-bottom: 30px;
+}
+
+.text-input {
+	height: 5rem;
+	font-size: 1.2rem;
+}
+
+.download-btn a {
+	width: inherit;
+	height: inherit;
+}
+
 /* Grid Areas */
 .text-input {
 	grid-area: text;
-	height: 5rem;
-	font-size: 1.2rem;
-	/* text-align: center; */
 }
 .arrow-up-btn {
 	grid-area: arrow-up;
@@ -306,11 +327,6 @@ button a {
 	grid-area: download;
 }
 
-.download-btn a {
-	width: inherit;
-	height: inherit;
-}
-
 /* Footer */
 
 .about {
@@ -322,6 +338,7 @@ button a {
 	/* margin-top: 10px; */
 	bottom: 0;
 	height: 10vh;
+	margin-top: 20vh;
 	background-color: cornflowerblue;
 }
 
@@ -498,12 +515,20 @@ nav li:hover {
 	box-shadow: inset 0px -1px 0px rgb(0, 195, 255);
 }
 
+.upload-meme-label:hover {
+	cursor: pointer;
+	font-size: 1.75rem;
+	font-weight: 700;
+	box-shadow: inset 0px -1px 0px rgb(0, 195, 255);
+}
+
 .img-gallery img:hover {
 	max-height: 180px;
 	opacity: 0.9;
 	box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000,
 		5px 5px 15px 5px rgba(0, 0, 0, 0);
 }
+
 .modal button {
 	cursor: pointer;
 }
@@ -525,7 +550,7 @@ nav li:hover {
 		flex-direction: column;
 		align-items: center;
 		background-color: cornflowerblue;
-		top: 5vh;
+		top: 6vh;
 		right: 0;
 		width: 100%;
 		transform: translateX(-100%);
@@ -555,6 +580,7 @@ nav li:hover {
 		box-shadow: none;
 	}
 	.canvas-container {
+		margin-top: 25vh;
 		width: 350px;
 		height: 350px;
 		margin-bottom: 30px;
@@ -663,6 +689,7 @@ nav li:hover {
 		max-height: unset;
 	}
 	footer {
+		margin-top: 0;
 		bottom: 0;
 		height: 10vh;
 	}
@@ -689,6 +716,17 @@ nav li:hover {
 		max-height: 250px;
 	}
 	.keywords {
-		font-size: 2rem;
+		font-size: 1.5rem;
+	}
+	.upload-meme-label {
+		font-size: 1.5rem;
+	}
+
+	.user {
+		font-size: 1.5rem;
+	}
+	nav li:last-child {
+		border-right: 2px dashed whitesmoke;
+		margin-right: 10px;
 	}
 }

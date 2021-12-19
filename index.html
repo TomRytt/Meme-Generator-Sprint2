@@ -9,9 +9,10 @@
 		<title>Tom Rytt-MemeGen Project</title>
 	</head>
 	<body onload="onInit()">
-		<!-- <div class="overflow-hidden"> -->
 		<div class="main-screen" onclick="toggleMenu()"></div>
 		<div class="modal-screen" onclick="toggleModal()"></div>
+
+		<!-- Header -->
 		<header class="header">
 			<div class="main-header main-layout flex">
 				<nav class="flex">
@@ -36,6 +37,7 @@
 		</header>
 		<div class="search-bar flex main-layout"></div>
 
+		<!-- Main -->
 		<main class="main main-layout">
 			<section class="img-gallery grid main-layout"></section>
 			<section
@@ -137,7 +139,6 @@
 							onchange="onImgInput(event)"
 						/>
 					</button>
-
 					<button onclick="renderShareModal()" class="open-share-modal-btn">
 						Share & Download
 					</button>
@@ -145,8 +146,7 @@
 			</section>
 		</main>
 
-		<div class="modal hide"></div>
-
+		<!-- Footer -->
 		<div class="footer">
 			<div class="footer-container main-layout flex">
 				<div class="logo flex">
@@ -158,11 +158,14 @@
 					Meme Generator
 				</p>
 			</div>
-			<div class="flash">Meme added to "Memes" tab</div>
-			<div class="share-container"></div>
-			<div class="text-box-sizer hide">text</div>
 		</div>
-		<!-- </div> -->
+
+		<!-- Helpers -->
+		<div class="flash"></div>
+		<div class="share-container"></div>
+		<div class="text-box-sizer hide">text</div>
+		<div class="modal hide"></div>
+
 		<script src="js/utils.js"></script>
 		<script src="js/services/storage-services.js"></script>
 		<script src="js/services/gallery-service.js"></script>

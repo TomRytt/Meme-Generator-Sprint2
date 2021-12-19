@@ -27,33 +27,21 @@ function loadImageFromInput(ev, onImageReady) {
 		var img = new Image();
 		img.onload = onImageReady.bind(null, img);
 		img.src = event.target.result;
-		saveToStorage('newImagesDB', img.src);
+		saveToStorage('newImg', img.src);
 		gMeme.selectedImgId = gKeywords.length;
-		_createImg('user', 'user', img.src);
+		_createImg('user', img.src);
 	};
 	reader.readAsDataURL(ev.target.files[0]);
 }
 
-// function renderImg(img) {
-// 	gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height);
-// }
-
-// Upload Service
 function uploadImg() {
-	const imgDataUrl = gElCanvas.toDataURL('img/jpeg');
-	console.log(imgDataUrl);
-
-	// A function to be called if request succeeds
+	const imgDataUrl = gElCanvas.toDataURL();
 	function onSuccess(uploadedImgUrl) {
 		const encodedUploadedImgUrl = encodeURIComponent(uploadedImgUrl);
-		document.querySelector(
-			'.user-msg'
-		).innerText = `Your photo is available here: ${uploadedImgUrl}`;
-
-		document.querySelector('.share-container').innerHTML = `
-        <a class="btn" href="https://www.facebook.com/sharer/sharer.php?u=${encodedUploadedImgUrl}&t=${encodedUploadedImgUrl}" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=${uploadedImgUrl}&t=${uploadedImgUrl}'); return false;">
-           Share   
-        </a>`;
+		document.querySelector('.modal').innerHTML = `<a class="btn fb-share"
+       href="https://www.facebook.com/sharer/sharer.php?u=${encodedUploadedImgUrl}&t=${encodedUploadedImgUrl}" 
+       title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.
+       php?u=${uploadedImgUrl}&t=${uploadedImgUrl}'); return false;">Share On FaceBook!</a>`;
 	}
 	doUploadImg(imgDataUrl, onSuccess);
 }
@@ -75,3 +63,27 @@ function doUploadImg(imgDataUrl, onSuccess) {
 			console.error(err);
 		});
 }
+
+// function renderImg(img) {
+// 	gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height);
+// }
+
+// Upload Service
+// function uploadImg() {
+// 	const imgDataUrl = gElCanvas.toDataURL('img/jpeg');
+// 	console.log(imgDataUrl);
+
+// 	// A function to be called if request succeeds
+// 	function onSuccess(uploadedImgUrl) {
+// 		const encodedUploadedImgUrl = encodeURIComponent(uploadedImgUrl);
+// 		document.querySelector(
+// 			'.user-msg'
+// 		).innerText = `Your photo is available here: ${uploadedImgUrl}`;
+
+// 		document.querySelector('.share-container').innerHTML = `
+//         <a class="btn" href="https://www.facebook.com/sharer/sharer.php?u=${encodedUploadedImgUrl}&t=${encodedUploadedImgUrl}" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=${uploadedImgUrl}&t=${uploadedImgUrl}'); return false;">
+//            Share
+//         </a>`;
+// 	}
+// 	doUploadImg(imgDataUrl, onSuccess);
+// }

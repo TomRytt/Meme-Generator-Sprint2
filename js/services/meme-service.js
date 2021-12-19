@@ -2,6 +2,7 @@
 
 // Global Variables
 var gSavedMemes = [];
+var gSavedImages = [];
 var gNewMemeIdx = 19;
 var gElCanvas = 5;
 const STORAGE_KEY = 'memesDB';
@@ -77,11 +78,11 @@ function addLine() {
 	gMeme.lines.push({
 		txt: 'New Line',
 		size: 30,
-		align: 'left',
+		align: 'center',
 		strokeColor: 'black',
 		color: 'white',
 		font: 'impact',
-		x: 15,
+		x: gElCanvas.width / 2,
 		y: gElCanvas.height / 2,
 	});
 }
@@ -107,7 +108,6 @@ function removeLine() {
 }
 
 function alignLine(value) {
-	console.log(value);
 	if (value === 'left') {
 		getSelectedLine().x = 15;
 		getSelectedLine().align = 'left';
@@ -150,4 +150,9 @@ function getSelectedLine() {
 function clearMemesStorage() {
 	localStorage.clear('memesDB');
 	renderGallery();
+}
+
+function getSavedImgs() {
+	gSavedImages = loadFromStorage('userImgs');
+	return gSavedImages;
 }
