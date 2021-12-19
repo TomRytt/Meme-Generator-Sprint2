@@ -78,7 +78,7 @@ function renderGallery() {
 					><span class= "cute" onclick="onSetKeyword('cute')">Cute </span
 					><span class= "movie" onclick="onSetKeyword('movie')">Movie</span>
 					<span class="user" onclick= onSetKeyword('user')>Your images</span>
-					<label class="upload-meme-label" for="upload-input"> Upload meme </label>
+					<label class="upload-meme-label" for="upload-input"> Upload template </label>
 						<input
 							type="file"
 							class="upload-input btn-input"
