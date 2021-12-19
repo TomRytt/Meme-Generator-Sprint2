@@ -54,3 +54,7 @@ function _createGallery() {
 		return _createImg(keyword1, keyword2);
 	});
 }
+
+function getImgs() {
+	return gImgs;
+}

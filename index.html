@@ -34,33 +34,7 @@
 					</nav>
 				</div>
 			</header>
-			<div class="search-bar flex main-layout">
-				<div class="search-keyword">
-					<input
-						onchange="onSetKeyword(value)"
-						list="keywords"
-						type="text"
-						name="keywords"
-						placeholder="Enter search keyword 🔎 "
-					/>
-					<datalist id="keywords">
-						<option value="all"></option>
-						<option value="funny"></option>
-						<option value="political"></option>
-						<option value="animal"></option>
-						<option value="cute"></option>
-						<option value="movie"></option>
-					</datalist>
-				</div>
-				<div class="keywords main-layout">
-					<span onclick="renderGallery()">All</span>
-					<span onclick="onSetKeyword('funny')">Funny </span
-					><span onclick="onSetKeyword('political')">Political </span
-					><span onclick="onSetKeyword('animal')">Animal</span
-					><span onclick="onSetKeyword('cute')">Cute </span
-					><span onclick="onSetKeyword('movie')">Movie</span>
-				</div>
-			</div>
+			<div class="search-bar flex main-layout"></div>
 
 			<main class="main main-layout">
 				<section class="img-gallery grid main-layout"></section>
@@ -83,14 +57,15 @@
 							class="text-input"
 							id="custom-text"
 							type="text"
-							value="enter some text"
+							placeholder="enter your text here"
+							onfocus="this.placeholder= ''"
 							oninput="onSetText(this.value)"
 							)
 						/>
-						<button class="arrow-up-btn" onclick="onArrowUp()">
+						<button class="arrow-up-btn" onclick="onMoveText('up')">
 							<img src="./images/icons/arrow-up.png" alt="" />
 						</button>
-						<button class="arrow-down-btn" onclick="onArrowDown()">
+						<button class="arrow-down-btn" onclick="onMoveText('down')">
 							<img src="./images/icons/arrow-down.png" alt="" />
 						</button>
 						<button class="switch-btn" onclick="onSwitchLine()">
@@ -102,20 +77,19 @@
 						<button class="delete-btn" onclick="onRemoveLine()">
 							<img src="./images/icons/trash.png" alt="" />
 						</button>
-						<button class="inc-font-btn" onclick="onIncFontSize()">
+						<button class="inc-font-btn" onclick="onSetFontSize('inc')">
 							<img src="./images/icons/increase.png" alt="" />
 						</button>
-						<button class="dec-font-btn" onclick="onDecFontSize()">
+						<button class="dec-font-btn" onclick="onSetFontSize('dec')">
 							<img src="./images/icons/decrease.png" alt="" />
 						</button>
-
-						<button class="align-left-btn" onclick="onAlignLeft()">
+						<button class="align-left-btn" onclick="onAlignLine('left')">
 							<img src="./images/icons/align-left.png" alt="" />
 						</button>
-						<button class="align-center-btn" onclick="onAlignCenter()">
+						<button class="align-center-btn" onclick="onAlignLine('center')">
 							<img src="./images/icons/align-center.png" alt="" />
 						</button>
-						<button class="align-right-btn" onclick="onAlignRight()">
+						<button class="align-right-btn" onclick="onAlignLine('right')">
 							<img src="./images/icons/align-right.png" alt="" />
 						</button>
 						<select name="font" id="font" onchange="onSetFont(this.value)">
@@ -126,7 +100,6 @@
 							<option value="Cursive">Cursive</option>
 							<option value="Helvetica">Helvetica</option>
 						</select>
-
 						<button class="text-stroke-btn">
 							<label for="strokeColor"
 								><img
@@ -139,7 +112,7 @@
 								type="color"
 								name="strokeColor"
 								id="strokeColor"
-								onchange="onSetStrokeColor(this.value)"
+								oninput="onSetStrokeColor(this.value)"
 							/>
 						</button>
 						<button class="brush-btn">
@@ -151,7 +124,7 @@
 								type="color"
 								name="color"
 								id="color"
-								onchange="onSetColor(this.value)"
+								oninput="onSetColor(this.value)"
 							/>
 						</button>
 						<button class="upload-btn">
@@ -185,8 +158,9 @@
 						Meme Generator
 					</p>
 				</div>
+				<div class="flash"></div>
 				<div class="share-container"></div>
-				<div class="text-box-sizer hide"></div>
+				<div class="text-box-sizer hide">text</div>
 			</div>
 		</div>
 		<script src="js/utils.js"></script>
