@@ -24,7 +24,7 @@ function onSetKeyword(elKeyword) {
 	} else if (elKeyword === 'user') {
 		var userImgs = getSavedImgs();
 		if (!userImgs || userImgs.length === 0) {
-			keyword.style.fontSize = fontSize = 1.2 + 'rem';
+			keyword.style.fontSize = fontSize = 1.5 + 'rem';
 			flash('No saved images');
 			return;
 		}
