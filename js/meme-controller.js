@@ -20,14 +20,6 @@ function onClearCanvas() {
 	gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height);
 }
 
-function onSetFont(value) {
-	var meme = getMeme();
-	if (meme.lines.length === 0) return;
-	setFont(value);
-	document.querySelector('.text-box-sizer').style.fontFamily = value;
-	renderMeme();
-}
-
 function onImgSelect(elImg) {
 	resetGmeme();
 	showEditor();
@@ -35,9 +27,15 @@ function onImgSelect(elImg) {
 	renderMeme();
 }
 
+function onSetFont(value) {
+	if (getMeme().lines.length === 0) return;
+	setFont(value);
+	document.querySelector('.text-box-sizer').style.fontFamily = value;
+	renderMeme();
+}
+
 function onSetText(value) {
-	var meme = getMeme();
-	if (meme.lines.length === 0) return;
+	if (getMeme().lines.length === 0) return;
 	setLineText(value);
 	renderMeme();
 }
@@ -48,50 +46,43 @@ function onAddLine() {
 }
 
 function onMoveText(value) {
-	var meme = getMeme();
-	if (meme.lines.length === 0) return;
+	if (getMeme().lines.length === 0) return;
 	moveText(value);
 	renderMeme();
 }
 
 function onSwitchLine() {
-	var meme = getMeme();
-	if (meme.lines.length === 0) return;
+	if (getMeme().lines.length === 0) return;
 	switchLine();
 	renderMeme();
 }
 
 function onSetColor(value) {
-	var meme = getMeme();
-	if (meme.lines.length === 0) return;
+	if (getMeme().lines.length === 0) return;
 	setColor(value);
 	renderMeme();
 }
 
 function onSetStrokeColor(value) {
-	var meme = getMeme();
-	if (meme.lines.length === 0) return;
+	if (getMeme().lines.length === 0) return;
 	setStrokeColor(value);
 	renderMeme();
 }
 
 function onSetFontSize(value) {
-	var meme = getMeme();
-	if (meme.lines.length === 0) return;
+	if (getMeme().lines.length === 0) return;
 	setFontSize(value);
 	renderMeme();
 }
 
-function onAlign(value) {
-	var meme = getMeme();
-	if (meme.lines.length === 0) return;
-	align(value);
+function onAlignLine(value) {
+	if (getMeme().lines.length === 0) return;
+	alignLine(value);
 	renderMeme();
 }
 
 function onRemoveLine() {
-	var meme = getMeme();
-	if (meme.lines.length === 0) return;
+	if (getMeme().lines.length === 0) return;
 	removeLine();
 	renderMeme();
 }
@@ -118,7 +109,7 @@ function addText() {
 		meme.selectedLineIdx++;
 		return;
 	}
-	if (gisShare === false) drawRect(meme);
+	if (gIsShare === false) drawRect(meme);
 	meme.lines.forEach((line) => {
 		var txt = line.txt;
 		var fontSize = line.size;
@@ -174,7 +165,7 @@ function showGallery() {
 }
 
 function renderShareModal() {
-	gisShare = !gisShare;
+	gIsShare = !gIsShare;
 	var elModal = document.querySelector('.modal');
 	elModal.classList.remove('about-modal');
 	elModal.classList.add('share-modal');
@@ -224,8 +215,7 @@ function onSaveMeme() {
 function flash() {
 	var flash = document.querySelector('.flash');
 	flash.classList.add('open');
-	flash.innerText = `Meme added to "memes" tab`;
 	setTimeout(function () {
 		flash.classList.remove('open');
-	}, 3000);
+	}, 1500);
 }

@@ -9,160 +9,160 @@
 		<title>Tom Rytt-MemeGen Project</title>
 	</head>
 	<body onload="onInit()">
-		<div class="overflow-hidden">
-			<div class="main-screen" onclick="toggleMenu()"></div>
-			<div class="modal-screen" onclick="toggleModal()"></div>
-			<header class="header">
-				<div class="main-header main-layout flex">
-					<nav class="flex">
-						<div onclick="renderGallery()" class="logo flex">
-							<img src="./images/logo/logo.png" alt="" />
-						</div>
-						<ul class="nav-items flex">
-							<li onclick="renderGallery()" class="nav-gallery flex">
-								<a>Gallery</a>
-							</li>
-							<li
-								onclick="renderSavedMemesGallery()"
-								class="nav-savded memes flex"
-							>
-								Memes
-							</li>
-							<li onclick="renderAboutModal()" class="nav-about flex">About</li>
-						</ul>
-						<button class="btn-menu" onclick="toggleMenu()">☰</button>
-					</nav>
-				</div>
-			</header>
-			<div class="search-bar flex main-layout"></div>
-
-			<main class="main main-layout">
-				<section class="img-gallery grid main-layout"></section>
-				<section
-					class="
-						meme-editor
-						main-layout
-						flex
-						column
-						justify-center
-						align-center
-						hide
-					"
-				>
-					<div class="canvas-container">
-						<canvas class="canvas"></canvas>
-					</div>
-					<div class="meme-controls">
-						<input
-							class="text-input"
-							id="custom-text"
-							type="text"
-							placeholder="enter your text here"
-							onfocus="this.placeholder= ''"
-							oninput="onSetText(this.value)"
-							)
-						/>
-						<button class="arrow-up-btn" onclick="onMoveText('up')">
-							<img src="./images/icons/arrow-up.png" alt="" />
-						</button>
-						<button class="arrow-down-btn" onclick="onMoveText('down')">
-							<img src="./images/icons/arrow-down.png" alt="" />
-						</button>
-						<button class="switch-btn" onclick="onSwitchLine()">
-							<img src="./images/icons/switch.png" alt="" />
-						</button>
-						<button class="add-line-btn" onclick="onAddLine()">
-							<img src="./images/icons/add.png" alt="" />
-						</button>
-						<button class="delete-btn" onclick="onRemoveLine()">
-							<img src="./images/icons/trash.png" alt="" />
-						</button>
-						<button class="inc-font-btn" onclick="onSetFontSize('inc')">
-							<img src="./images/icons/increase.png" alt="" />
-						</button>
-						<button class="dec-font-btn" onclick="onSetFontSize('dec')">
-							<img src="./images/icons/decrease.png" alt="" />
-						</button>
-						<button class="align-left-btn" onclick="onAlignLine('left')">
-							<img src="./images/icons/align-left.png" alt="" />
-						</button>
-						<button class="align-center-btn" onclick="onAlignLine('center')">
-							<img src="./images/icons/align-center.png" alt="" />
-						</button>
-						<button class="align-right-btn" onclick="onAlignLine('right')">
-							<img src="./images/icons/align-right.png" alt="" />
-						</button>
-						<select name="font" id="font" onchange="onSetFont(this.value)">
-							<option value="impact">Impact</option>
-							<option value="Serif">Serif</option>
-							<option value="Sans-serif">Sans-serif</option>
-							<option value="Monospace">Monospace</option>
-							<option value="Cursive">Cursive</option>
-							<option value="Helvetica">Helvetica</option>
-						</select>
-						<button class="text-stroke-btn">
-							<label for="strokeColor"
-								><img
-									class="icon-img"
-									src="./images/icons/text-stroke.png"
-									alt=""
-							/></label>
-							<input
-								class="btn-input"
-								type="color"
-								name="strokeColor"
-								id="strokeColor"
-								oninput="onSetStrokeColor(this.value)"
-							/>
-						</button>
-						<button class="brush-btn">
-							<label for="color"
-								><img class="icon-img" src="./images/icons/brush.png" alt=""
-							/></label>
-							<input
-								class="btn-input"
-								type="color"
-								name="color"
-								id="color"
-								oninput="onSetColor(this.value)"
-							/>
-						</button>
-						<button class="upload-btn">
-							<label for="upload-input"> Upload Your Own Meme </label>
-							<input
-								type="file"
-								class="upload-input btn-input"
-								id="upload-input"
-								name="image"
-								onchange="onImgInput(event)"
-							/>
-						</button>
-
-						<button onclick="renderShareModal()" class="open-share-modal-btn">
-							Share & Download
-						</button>
-					</div>
-				</section>
-			</main>
-
-			<div class="modal hide"></div>
-
-			<div class="footer">
-				<div class="footer-container main-layout flex">
-					<div class="logo flex">
+		<!-- <div class="overflow-hidden"> -->
+		<div class="main-screen" onclick="toggleMenu()"></div>
+		<div class="modal-screen" onclick="toggleModal()"></div>
+		<header class="header">
+			<div class="main-header main-layout flex">
+				<nav class="flex">
+					<div onclick="renderGallery()" class="logo flex">
 						<img src="./images/logo/logo.png" alt="" />
 					</div>
-					<p class="footer-text flex" onclick="renderAboutModal()">
-						Tom Rytt &#169; <br />
-						CA 2nd Sprint <br />
-						Meme Generator
-					</p>
-				</div>
-				<div class="flash"></div>
-				<div class="share-container"></div>
-				<div class="text-box-sizer hide">text</div>
+					<ul class="nav-items flex">
+						<li onclick="renderGallery()" class="nav-gallery flex">
+							<a>Gallery</a>
+						</li>
+						<li
+							onclick="renderSavedMemesGallery()"
+							class="nav-savded memes flex"
+						>
+							Memes
+						</li>
+						<li onclick="renderAboutModal()" class="nav-about flex">About</li>
+					</ul>
+					<button class="btn-menu" onclick="toggleMenu()">☰</button>
+				</nav>
 			</div>
+		</header>
+		<div class="search-bar flex main-layout"></div>
+
+		<main class="main main-layout">
+			<section class="img-gallery grid main-layout"></section>
+			<section
+				class="
+					meme-editor
+					main-layout
+					flex
+					column
+					justify-center
+					align-center
+					hide
+				"
+			>
+				<div class="canvas-container">
+					<canvas class="canvas"></canvas>
+				</div>
+				<div class="meme-controls">
+					<input
+						class="text-input"
+						id="custom-text"
+						type="text"
+						placeholder="enter your text here"
+						onfocus="this.placeholder= ''"
+						oninput="onSetText(this.value)"
+						)
+					/>
+					<button class="arrow-up-btn" onclick="onMoveText('up')">
+						<img src="./images/icons/arrow-up.png" alt="" />
+					</button>
+					<button class="arrow-down-btn" onclick="onMoveText('down')">
+						<img src="./images/icons/arrow-down.png" alt="" />
+					</button>
+					<button class="switch-btn" onclick="onSwitchLine()">
+						<img src="./images/icons/switch.png" alt="" />
+					</button>
+					<button class="add-line-btn" onclick="onAddLine()">
+						<img src="./images/icons/add.png" alt="" />
+					</button>
+					<button class="delete-btn" onclick="onRemoveLine()">
+						<img src="./images/icons/trash.png" alt="" />
+					</button>
+					<button class="inc-font-btn" onclick="onSetFontSize('inc')">
+						<img src="./images/icons/increase.png" alt="" />
+					</button>
+					<button class="dec-font-btn" onclick="onSetFontSize('dec')">
+						<img src="./images/icons/decrease.png" alt="" />
+					</button>
+					<button class="align-left-btn" onclick="onAlignLine('left')">
+						<img src="./images/icons/align-left.png" alt="" />
+					</button>
+					<button class="align-center-btn" onclick="onAlignLine('center')">
+						<img src="./images/icons/align-center.png" alt="" />
+					</button>
+					<button class="align-right-btn" onclick="onAlignLine('right')">
+						<img src="./images/icons/align-right.png" alt="" />
+					</button>
+					<select name="font" id="font" onchange="onSetFont(this.value)">
+						<option value="impact">Impact</option>
+						<option value="Serif">Serif</option>
+						<option value="Sans-serif">Sans-serif</option>
+						<option value="Monospace">Monospace</option>
+						<option value="Cursive">Cursive</option>
+						<option value="Helvetica">Helvetica</option>
+					</select>
+					<button class="text-stroke-btn">
+						<label for="strokeColor"
+							><img
+								class="icon-img"
+								src="./images/icons/text-stroke.png"
+								alt=""
+						/></label>
+						<input
+							class="btn-input"
+							type="color"
+							name="strokeColor"
+							id="strokeColor"
+							oninput="onSetStrokeColor(this.value)"
+						/>
+					</button>
+					<button class="brush-btn">
+						<label for="color"
+							><img class="icon-img" src="./images/icons/brush.png" alt=""
+						/></label>
+						<input
+							class="btn-input"
+							type="color"
+							name="color"
+							id="color"
+							oninput="onSetColor(this.value)"
+						/>
+					</button>
+					<button class="upload-btn">
+						<label for="upload-input"> Upload Your Own Meme </label>
+						<input
+							type="file"
+							class="upload-input btn-input"
+							id="upload-input"
+							name="image"
+							onchange="onImgInput(event)"
+						/>
+					</button>
+
+					<button onclick="renderShareModal()" class="open-share-modal-btn">
+						Share & Download
+					</button>
+				</div>
+			</section>
+		</main>
+
+		<div class="modal hide"></div>
+
+		<div class="footer">
+			<div class="footer-container main-layout flex">
+				<div class="logo flex">
+					<img src="./images/logo/logo.png" alt="" />
+				</div>
+				<p class="footer-text flex" onclick="renderAboutModal()">
+					Tom Rytt &#169; <br />
+					CA 2nd Sprint <br />
+					Meme Generator
+				</p>
+			</div>
+			<div class="flash">Meme added to "Memes" tab</div>
+			<div class="share-container"></div>
+			<div class="text-box-sizer hide">text</div>
 		</div>
+		<!-- </div> -->
 		<script src="js/utils.js"></script>
 		<script src="js/services/storage-services.js"></script>
 		<script src="js/services/gallery-service.js"></script>

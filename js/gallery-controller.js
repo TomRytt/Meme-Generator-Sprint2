@@ -1,6 +1,8 @@
 'use strict';
 
 function onInit() {
+	// Gmeme
+	resetGmeme();
 	// Gallery
 	_createGallery();
 	renderGallery();

@@ -6,38 +6,11 @@ var gNewMemeIdx = 19;
 var gElCanvas = 5;
 const STORAGE_KEY = 'memesDB';
 var gUserImg = loadFromStorage('newImagesDB');
-var gisShare = false;
+var gIsShare = false;
+var gMeme;
+var gSelectedLine = getSelectedLine();
 
 // Canvas functions
-
-var gMeme = {
-	selectedImgId: 5,
-	selectedLineIdx: 0,
-	lines: [
-		{
-			txt: 'Enter Text Here',
-			size: 30,
-			align: 'center',
-			strokeColor: 'black',
-			color: 'white',
-			font: 'impact',
-			x: gElCanvas.width / 2,
-			y: 50,
-		},
-		{
-			txt: 'Enter Text Here',
-			size: 30,
-			align: 'center',
-			strokeColor: 'black',
-			color: 'white',
-			font: 'impact',
-			x: gElCanvas.width / 2,
-			y: gElCanvas.height - 30,
-		},
-	],
-};
-
-var gSelectedLine = getSelectedLine();
 
 // Functions
 
@@ -170,6 +143,7 @@ function getUserImg() {
 }
 
 function getSelectedLine() {
+	if (!gMeme) return;
 	return gMeme.lines[gMeme.selectedLineIdx];
 }
 
