@@ -2,7 +2,7 @@
 
 // Global Variables
 var gSavedMemes = [];
-var gSavedImages = [];
+
 var gNewMemeIdx = 19;
 var gElCanvas = 5;
 const STORAGE_KEY = 'memesDB';
@@ -149,6 +149,7 @@ function getSelectedLine() {
 
 function clearMemesStorage() {
 	localStorage.clear('memesDB');
+	flash('Saved memes cleared');
 	renderGallery();
 }
 

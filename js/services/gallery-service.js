@@ -1,14 +1,6 @@
 'use strict';
 // Global variables
-var gKeywordSearchCountMap = {
-	celebrity: 0,
-	political: 0,
-	cute: 0,
-	funny: 0,
-	animal: 0,
-	sport: 0,
-	movie: 0,
-};
+var gSavedImages = [];
 
 // Gallery
 var gNextIdx = 0;
@@ -73,3 +65,13 @@ function addMeme(ev) {
 	showEditor();
 	onImgInput(ev);
 }
+
+// var gKeywordSearchCountMap = {
+// 	celebrity: 0,
+// 	political: 0,
+// 	cute: 0,
+// 	funny: 0,
+// 	animal: 0,
+// 	sport: 0,
+// 	movie: 0,
+// };
