@@ -23,7 +23,11 @@ function onSetKeyword(elKeyword) {
 		renderGallery();
 	} else if (elKeyword === 'user') {
 		var userImgs = getSavedImgs();
-		if (!userImgs || userImgs.length === 0) return;
+		if (!userImgs || userImgs.length === 0) {
+			keyword.style.fontSize = fontSize = 1.2 + 'rem';
+			flash('No saved images');
+			return;
+		}
 		var strHTMLs = userImgs.map((img) => {
 			return `
         <div id="${img.id}" onclick="onImgSelect(this)" class="img img${img.id}"><img src="${img.url}" alt=""></div>
