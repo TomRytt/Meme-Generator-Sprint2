@@ -687,7 +687,7 @@ nav li:hover {
 		max-width: unset;
 		max-height: unset;
 	}
-	footer {
+	.footer {
 		margin-top: 0;
 		bottom: 0;
 		height: 10vh;

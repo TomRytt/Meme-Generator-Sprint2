@@ -13,6 +13,7 @@ function onInit() {
 }
 
 function onSetKeyword(elKeyword) {
+	elKeyword = elKeyword.toLowerCase();
 	var keyword = document.querySelector(`.${elKeyword}`);
 	var style = window
 		.getComputedStyle(keyword, null)
